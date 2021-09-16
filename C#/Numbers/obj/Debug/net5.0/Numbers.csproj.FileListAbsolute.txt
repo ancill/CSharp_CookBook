@@ -1,0 +1,15 @@
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/bin/Debug/net5.0/Numbers.deps.json
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/bin/Debug/net5.0/Numbers.runtimeconfig.json
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/bin/Debug/net5.0/Numbers.runtimeconfig.dev.json
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/bin/Debug/net5.0/Numbers.dll
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/bin/Debug/net5.0/ref/Numbers.dll
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/bin/Debug/net5.0/Numbers.pdb
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.csproj.AssemblyReference.cache
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.GeneratedMSBuildEditorConfig.editorconfig
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.AssemblyInfoInputs.cache
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.AssemblyInfo.cs
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.csproj.CoreCompileInputs.cache
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.dll
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/ref/Numbers.dll
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.pdb
+/Users/a19072382/Documents/GitHub/CSharp_CookBook/C#/Numbers/obj/Debug/net5.0/Numbers.genruntimeconfig.cache
