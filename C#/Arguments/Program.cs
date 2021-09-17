@@ -31,7 +31,13 @@ namespace Arguments
         value: args[1],
         ignoreCase: true);
 
+      var someColor = (ConsoleColor)Enum.Parse(
+        enumType: typeof(ConsoleColor),
+        value: "Green",
+        ignoreCase: true
+      );
 
+      ForegroundColor = someColor;
       try
       {
         CursorSize = int.Parse(args[2]);
