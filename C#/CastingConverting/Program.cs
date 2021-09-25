@@ -30,7 +30,7 @@ namespace CastingConverting
 
       // Understanding the default rounding rules
 
-      double[] doubles = new[] 
+      double[] doubles = new[]
         { 9.49, 9.5, 9.51, 10.49, 10.5, 10.51 };
 
       foreach (double n in doubles)
@@ -42,11 +42,11 @@ namespace CastingConverting
 
       foreach (double n in doubles)
       {
-        WriteLine(format: 
+        WriteLine(format:
           "Math.Round(value: {0}, digits: 0, mode: MidpointRounding.AwayFromZero) is {1}",
           arg0: n,
-          arg1: Math.Round(value: n, 
-            digits: 0, 
+          arg1: Math.Round(value: n,
+            digits: 0,
             mode: MidpointRounding.AwayFromZero));
       }
 
@@ -64,10 +64,10 @@ namespace CastingConverting
       object me = new object();
       WriteLine(me.ToString());
 
-      // allocate array of 128 bytes 
-      byte[] binaryObject = new byte[128];
+      // allocate array of 128 bytes
+      byte[] binaryObject = new byte[8];
 
-      // populate array with random bytes 
+      // populate array with random bytes
       (new Random()).NextBytes(binaryObject);
 
       WriteLine("Binary Object as bytes:");
