@@ -142,7 +142,7 @@ namespace Functions
         _ => FibFunctional(term - 1) + FibFunctional(term - 2)
       };
 
-    static void RunFibImperative()
+    static void RunFibFunctional()
     {
       for (int i = 1; i <= 30; i++)
       {
@@ -155,7 +155,7 @@ namespace Functions
     static void Main(string[] args)
     {
       // RunTimesTable();
-      RunFibImperative();
+      RunFibFunctional();
     }
   }
 
