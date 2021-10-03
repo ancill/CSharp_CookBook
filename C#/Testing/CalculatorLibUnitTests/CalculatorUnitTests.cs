@@ -15,7 +15,6 @@ namespace CalculatorLibUnitTests
       double expected = 4;
       var calc = new Calculator();
       // act
-      s
       double actual = calc.Add(a, b);
       // assert
       Assert.Equal(expected, actual);
