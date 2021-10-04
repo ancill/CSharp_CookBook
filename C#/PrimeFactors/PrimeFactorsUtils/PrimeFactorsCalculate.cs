@@ -4,7 +4,7 @@ namespace PrimeFactorsUtils
 {
   public class PrimeFactorsCalculate
   {
-    public string GetPrimeFactorOfNumber(int number)
+    public static void GetPrimeFactorOfNumber(int n)
     {
       // Print the number of 2s that divide n
       while (n % 2 == 0)
@@ -29,6 +29,7 @@ namespace PrimeFactorsUtils
       // n is a prime number greater than 2
       if (n > 2)
         Console.Write(n);
+
     }
   }
 }
