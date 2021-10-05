@@ -4,7 +4,7 @@ using static System.Console;
 namespace Packt.Shared
 {
 
-  public class Person : Object
+  public partial class Person : Object
   {
     // fields
     public string Name;
@@ -48,7 +48,8 @@ namespace Packt.Shared
     public void PassingParameters(int x, ref int y, out int z)
     {
       // out parameters cannot have a default
-      // AND must be initialized inside the method z = 99;
+      // AND must be initialized inside the method
+      z = 99;
       // increment each parameter
       x++;
       y++;
