@@ -17,6 +17,9 @@ namespace PeopleApp
       WondersOfTheAncientWorld.HangingGardensOfBabylon
       | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
+      (string, int) fruit = bob.GetFruit();
+      WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
+
       WriteLine(format:
         "{0}'s favorite wonder is {1}. Its integer is {2}.",
             arg0: bob.Name,

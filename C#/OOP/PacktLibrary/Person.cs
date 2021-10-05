@@ -40,5 +40,10 @@ namespace Packt.Shared
       return $"{Name} was born on {HomePlanet}.";
     }
 
+    public (string, int) GetFruit()
+    {
+      return ("Apples", 5);
+    }
+
   }
 }
