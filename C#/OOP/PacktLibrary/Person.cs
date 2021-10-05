@@ -11,5 +11,17 @@ namespace Packt.Shared
     public WondersOfTheAncientWorld FavoriteAncientWonder;
     public WondersOfTheAncientWorld BucketList;
     public List<Person> Children = new List<Person>();
+    public const string Species = "Homo Sapien";
+    // read-only fields
+    public readonly string HomePlanet = "Earth";
+
+    public readonly DateTime Instantiated;
+    // constructors
+    public Person()
+    {
+      // set default values for fields // including read-only fields
+      Name = "Unknown";
+      Instantiated = DateTime.Now;
+    }
   }
 }
