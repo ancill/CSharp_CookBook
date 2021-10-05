@@ -20,6 +20,9 @@ namespace PeopleApp
       (string, int) fruit = bob.GetFruit();
       WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
 
+      (string fruitName, int fruitNumber) = bob.GetFruit();
+      WriteLine($"Deconstructed: {fruitName}, {fruitNumber}");
+
       WriteLine(format:
         "{0}'s favorite wonder is {1}. Its integer is {2}.",
             arg0: bob.Name,
