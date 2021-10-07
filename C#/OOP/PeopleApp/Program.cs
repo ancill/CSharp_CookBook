@@ -152,6 +152,32 @@ namespace PeopleApp
         };
         WriteLine($"Flight costs {flightCost:C} for {passenger}");
       }
+
+      var jeff = new ImmutablePerson
+      {
+        FirstName = "Jeff",
+        LastName = "Winger",
+      };
+      // jeff.FirstName = "Geof";
+
+      var car = new ImmutableVehicle
+      {
+        Brand = "Mazda MX-5 RF",
+        Color = "Soul Red Crystal Metallic",
+        Wheels = 4,
+      };
+
+      var repaintedCar = car with { Color = "Polymetal Grey Metallic" };
+      WriteLine("Original color was {0}, new color is {1}.",
+        arg0: car.Color, arg1: repaintedCar.Color);
+
+      var oscar = new ImmutableAnimal("Oscar", "Labrador");
+      var (who, what) = oscar; // calls Deconstruct method
+      WriteLine($"{who} is a {what}.");
+
+      var oscar2 = new ImmutableAnimalSimple("Oscar", "Labrador");
+      var (who, what) = oscar; // calls Deconstruct method
+      WriteLine($"{who} is a {what}.");
     }
   }
 }
