@@ -9,7 +9,7 @@ namespace Packt.Shared
     public string Name;
     public DateTime DateOfBirth;
     public List<Person> Children = new List<Person>();
-    // methodsd
+    // methods
     public void WriteToConsole()
     {
       WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
