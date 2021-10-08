@@ -30,6 +30,6 @@ namespace Packt.Shared
   }
 
   // simpler way to define a record that does the equivalent
-  public data class ImmutableAnimalSimple(string Name, string Species);
+  public record ImmutableAnimalSimple(string Name, string Species);
 
 }

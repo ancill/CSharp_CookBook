@@ -175,9 +175,6 @@ namespace PeopleApp
       var (who, what) = oscar; // calls Deconstruct method
       WriteLine($"{who} is a {what}.");
 
-      var oscar2 = new ImmutableAnimalSimple("Oscar", "Labrador");
-      var (who, what) = oscar; // calls Deconstruct method
-      WriteLine($"{who} is a {what}.");
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../InterfacesAndIngeritingClasses/PacktLibrary"
+		},
+		{
+			"path": "../InterfacesAndIngeritingClasses/PeopleApp"
+		}
+	],
+	"settings": {}
+}
