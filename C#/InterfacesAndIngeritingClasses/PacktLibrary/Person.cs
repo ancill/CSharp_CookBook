@@ -16,4 +16,3 @@ namespace Packt.Shared
     }
   }
 }
-s
