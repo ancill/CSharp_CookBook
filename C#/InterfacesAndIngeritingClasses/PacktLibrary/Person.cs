@@ -30,5 +30,52 @@ namespace Packt.Shared
     {
       return Procreate(this, partner);
     }
+
+    // operator to "multiply"
+    public static Person operator *(Person p1, Person p2)
+    {
+      return Person.Procreate(p1, p2);
+    }
+
+    // method with a local function
+    public static ulong Factorial(ulong number)
+    {
+      if (number < 0)
+      {
+        throw new ArgumentException(
+          $"{nameof(number)} cannot be less than zero.");
+      }
+      return localFactorial(number);
+
+      ulong localFactorial(ulong localNumber) // local function
+      {
+        if (localNumber < 1) return 1;
+        return localNumber * localFactorial(localNumber - 1);
+      }
+    }
+
+    // Events
+    // event delegate field
+    public EventHandler Shout;
+
+    // data field
+    public int AngerLevel;
+
+    public void Poke()
+    {
+      AngerLevel++;
+      if (AngerLevel >= 3)
+      {
+        // if something is listening
+        if (Shout != null)
+        {
+          // ... then call the delegate
+          Shout(this, EventArgs.Empty);
+          // Shout?.Invoke(this, EventArgs.Empty);
+        }
+      }
+    }
+
+
   }
 }
