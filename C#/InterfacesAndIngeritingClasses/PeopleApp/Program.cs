@@ -14,7 +14,7 @@ namespace PeopleApp
     static void Main(string[] args)
     {
       var harry = new Person { Name = "Harry" };
-      harry.Shout = Harry_Shout;
+      harry.Shout += Harry_Shout;
       harry.Poke();
       harry.Poke();
       harry.Poke();
