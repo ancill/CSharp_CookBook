@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using static System.Console;
 namespace Packt.Shared
 {
-  public class Person : IComparable<Person>
+  public class Person : IComparable
   {
     // fields
-    public string Name;
+    public string? Name;
     public DateTime DateOfBirth;
     public List<Person> Children = new List<Person>();
     // methods
@@ -57,7 +57,7 @@ namespace Packt.Shared
 
     // Events
     // event delegate field
-    public event EventHandler Shout;
+    public event EventHandler? Shout;
 
     // data field
     public int AngerLevel;
