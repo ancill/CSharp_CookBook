@@ -68,8 +68,35 @@ namespace PeopleApp
         WriteLine($"  {person.Name}");
       }
 
+      var t1 = new Thing();
+      t1.Data = 42;
+      WriteLine($"Thing with an integer: {t1.Process(42)}");
+      var t2 = new Thing();
+      t2.Data = "apple";
+      WriteLine($"Thing with a string: {t2.Process("apple")}");
+
+      var gt1 = new GenericThing<int>();
+      gt1.Data = 42;
+      WriteLine($"GenericThing with an integer: {gt1.Process(42)}");
+
+      var gt2 = new GenericThing<string>();
+      gt2.Data = "apple";
+      WriteLine($"GenericThing with a string: {gt2.Process("apple")}");
+
+      string number1 = "4";
+      WriteLine("{0} squared is {1}",
+        arg0: number1,
+        arg1: Squarer.Square<string>(number1));
+      byte number2 = 3;
+      WriteLine("{0} squared is {1}",
+        arg0: number2,
+        arg1: Squarer.Square(number2));
+
+      var dv1 = new DisplacementVector(3, 5);
+      var dv2 = new DisplacementVector(-2, 7);
+      var dv3 = dv1 + dv2;
+      WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X}, { dv3.Y})");
+
     }
-
-
   }
 }
