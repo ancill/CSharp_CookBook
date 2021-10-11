@@ -151,7 +151,7 @@ namespace PeopleApp
         "{0} is a valid e-mail address: {1}",
         arg0: email2,
         arg1: StringExtensions.IsValidEmail(email2));
-
+      d
 
       WriteLine(
         "{0} is a valid e-mail address: {1}",
