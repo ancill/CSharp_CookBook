@@ -1,40 +1,104 @@
 ﻿
-namespace AreaForms
+namespace Area.Shared
 {
-  public class Shape
+  public abstract class Shape
   {
-    public readonly double Height;
-    public readonly double Width;
+    // fields
+    // protected - only inside this class and class that inherit it
+    protected double height;
+    protected double width;
 
-    public virtual double Area { get; set; }
-
-    public Shape(double height, double width)
+    // properties
+    public virtual double Height
     {
-      Height = height;
-      Width = width;
-      Area = height * width;
+      get
+      {
+        return height;
+      }
+      set
+      {
+        height = value;
+      }
+    }
+
+    public virtual double Width
+    {
+      get
+      {
+        return width;
+      }
+      set
+      {
+        width = value;
+      }
+    }
+
+    // Area must be implemented by derived classes
+    // as a read-only property
+    public virtual double Area { get; }
+  }
+
+
+  public class Rectangle : Shape
+  {
+    public Rectangle() { }
+
+    public Rectangle(double height, double width)
+    {
+      this.height = height;
+      this.width = width;
+    }
+
+    public override double Area
+    {
+      get
+      {
+        return height * width;
+      }
     }
   }
-  public class Ractangle : Shape
-  {
-    public Ractangle(double height, double width) : base(height, width)
-    {
-      Area = height * width;
-    }
-  }
+
   public class Square : Shape
   {
-    public Square(double height) : base(height, width)
+    public Square() { }
+    public Square(double width)
     {
+      this.height = width;
+      this.width = width;
+    }
+    public override double Area
+    {
+      get
+      {
+        return height * width;
+      }
+    }
+  }
 
-      Area = height * height;
-    }
-  }
-  public class Circle : Shape
+  public class Circle : Square
   {
-    public Circle(double diametr) : base(height, width)
+    public Circle() { }
+    public Circle(double radius) : base(width: radius * 2) { }
+    public double Radius
     {
-      Area = diametr * Math.PI;
+      get
+      {
+        return height / 2;
+      }
+      set
+      {
+        Height = value * 2;
+      }
+    }
+
+    public override double Area
+    {
+      get
+      {
+        var radius = height / 2;
+        return System.Math.PI * radius * radius;
+      }
     }
   }
+
 }

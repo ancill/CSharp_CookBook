@@ -8,6 +8,6 @@
   </PropertyGroup>
  <ItemGroup>
     <ProjectReference
-      Include="..\AreaForms\AreaForms.csproj" />
+      Include="../AreaForms/AreaForms.csproj" />
   </ItemGroup>
 </Project>
