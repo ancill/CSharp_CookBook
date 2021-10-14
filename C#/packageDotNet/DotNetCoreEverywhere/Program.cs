@@ -10,4 +10,3 @@ namespace DotNetCoreEverywhere
     }
   }
 }
-s
