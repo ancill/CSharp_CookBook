@@ -19,6 +19,6 @@ foreach (string imagePath in images)
   {
     image.Mutate(x => x.Resize(image.Width / 10, image.Height / 10));
     image.Mutate(x => x.Grayscale());
-    image.Save(thumbnailPath);
+    image.Save(thumbnailPath); s
   }
 }
