@@ -21,5 +21,4 @@ foreach (string imagePath in images)
     image.Mutate(x => x.Grayscale());
     image.Save(thumbnailPath);
   }
-  s
 }
