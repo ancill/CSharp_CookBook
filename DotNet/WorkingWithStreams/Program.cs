@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System.IO;
+using static System.Console;
+
+public class Programm
+{
+  public static void Main()
+  {
+
+  }
+
+
+}
