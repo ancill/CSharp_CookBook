@@ -31,31 +31,57 @@ public class Programm
   }
   static void WorkWithXml()
   {
-    // define a file to write to
-    string xmlFile = Combine(CurrentDirectory, "streams.xml"); // create a file stream
-    FileStream xmlFileStream = File.Create(xmlFile);
-    // wrap the file stream in an XML writer helper
-    // and automatically indent nested elements
-    XmlWriter xml = XmlWriter.Create(xmlFileStream, new XmlWriterSettings { Indent = true }); // write the XML declaration
-    xml.WriteStartDocument();
-    // write a root element
-    xml.WriteStartElement("callsigns");
-    // enumerate the strings writing each one to the stream
-    foreach (string item in callsigns)
+    FileStream xmlFileStream = null;
+    XmlWriter xml = null;
+    try
     {
-      xml.WriteElementString("callsign", item);
-    }
-    // write the close root element
-    xml.WriteEndElement();
-    // close helper and stream
-    xml.Close();
-    xmlFileStream.Close();
 
-    // output all the contents of the file
-    WriteLine("{0} contains {1:N0} bytes.",
-      arg0: xmlFile,
-      arg1: new FileInfo(xmlFile).Length);
-    WriteLine(File.ReadAllText(xmlFile));
+      // define a file to write to
+      string xmlFile = Combine(CurrentDirectory, "streams.xml");
+      // create a file stream
+      xmlFileStream = File.Create(xmlFile);
+
+
+      /// wrap the file stream in an XML writer helper
+      // and automatically indent nested elements
+      xml = XmlWriter.Create(xmlFileStream, new XmlWriterSettings { Indent = true });
+      xml.WriteStartDocument();
+      // write a root element
+      xml.WriteStartElement("callsigns");
+      // enumerate the strings writing each one to the stream
+      foreach (string item in callsigns)
+      {
+        xml.WriteElementString("callsign", item);
+      }
+      // write the close root element
+      xml.WriteEndElement();
+      // close helper and stream
+      xml.Close();
+      xmlFileStream.Close();
+
+      // output all the contents of the file
+      WriteLine("{0} contains {1:N0} bytes.",
+        arg0: xmlFile,
+        arg1: new FileInfo(xmlFile).Length);
+      WriteLine(File.ReadAllText(xmlFile));
+    }
+    catch (Exception ex)
+    {
+      WriteLine($"{ex.GetType()} says {ex.Message}");
+    }
+    finally
+    {
+      if (xml != null)
+      {
+        xml.Dispose();
+        WriteLine("The XML writer's unmanaged resources have been disposed.");
+      }
+      if (xmlFileStream != null)
+      {
+        xmlFileStream.Dispose();
+        WriteLine("The file stream's unmanaged resources have been disposed.");
+      }
+    }
   }
 
   public static void Main()
