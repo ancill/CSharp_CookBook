@@ -36,3 +36,4 @@ foreach (byte b in encoded)
 }
 string decoded = encoder.GetString(encoded);
 WriteLine(decoded);
+о
