@@ -60,3 +60,8 @@ using (StreamWriter jsonStream = File.CreateText(jsonPath))
   jss.Serialize(jsonStream, people);
 }
 WriteLine();
+WriteLine("Written {0:N0} bytes of JSON to: {1}",
+  arg0: new FileInfo(jsonPath).Length,
+  arg1: jsonPath);
+// Display the serialized object graph
+WriteLine(File.ReadAllText(jsonPath));
