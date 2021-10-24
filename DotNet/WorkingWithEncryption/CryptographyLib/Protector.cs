@@ -7,6 +7,16 @@ using System.Text;
 using System.Xml.Linq;
 using static System.Convert;
 
+/**
+Note the following points about the preceding code:
+• We used double the recommended salt size and iteration count.
+• Although the salt and iteration count can be hardcoded, the password must be
+passed at runtime when calling the Encrypt and Decrypt methods.
+• We use a temporary MemoryStream type to store the results of encrypting and
+decrypting, and then call ToArray to turn the stream into a byte array.
+• We convert the encrypted byte arrays to and from a Base64 encoding to make
+them easier to read.
+**/
 
 namespace Packt.Shared
 {
