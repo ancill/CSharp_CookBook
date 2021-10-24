@@ -18,6 +18,19 @@ decrypting, and then call ToArray to turn the stream into a byte array.
 them easier to read.
 **/
 
+/**
+The RSA type has two methods named ToXmlString and FromXmlString.
+These serialize and deserialize the RSAParameters structure, which contains the
+public and private keys.
+However, the implementation of these methods on macOS throws a PlatformNotSupportedException exception. I have had to re-implement them myself as extension methods named ToXmlStringExt and FromXmlStringExt using LINQ to XML types such as XDocument,
+
+• Only the public part of the public-private key pair needs to be made available to the code that is checking the signature so that we can pass the false value when we call the ToXmlStringExt method.
+ The private part is required to sign data and must be kept secret because anyone with the private part can sign data as if they are you!
+
+• The hash algorithm used to generate the hash from the data by calling the SignHash method must match the hash algorithm set when calling the VerifyHash method. In the preceding code, we used SHA256.
+
+**/
+
 namespace Packt.Shared
 {
   public static class Protector
