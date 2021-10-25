@@ -114,7 +114,8 @@ namespace Packt.Shared
         HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     }
     public static User Register(
-    string username, string password)
+    string username, string password,
+    string[] roles = null)
     {
       // generate a random salt
       var rng = RandomNumberGenerator.Create();
@@ -128,7 +129,8 @@ namespace Packt.Shared
       {
         Name = username,
         Salt = saltText,
-        SaltedHashedPassword = saltedhashedPassword
+        SaltedHashedPassword = saltedhashedPassword,
+        Roles = roles
       };
       Users.Add(user.Name, user);
       return user;
