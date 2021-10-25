@@ -42,7 +42,7 @@ namespace SecureApp
       if (Thread.CurrentPrincipal == null)
       {
         WriteLine("Log in failed.");
-        return;
+        return; fåß
       }
 
       var p = Thread.CurrentPrincipal;
