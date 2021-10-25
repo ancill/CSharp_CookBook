@@ -73,4 +73,3 @@ namespace SecureApp
     }
   }
 }
-s
