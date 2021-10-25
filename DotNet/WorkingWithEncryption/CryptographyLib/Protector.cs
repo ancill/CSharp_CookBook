@@ -113,9 +113,7 @@ namespace Packt.Shared
       return rsa.VerifyHash(hashedData, signatureBytes,
         HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     }
-    public static User Register(
-    string username, string password,
-    string[] roles = null)
+    public static User Register(string username, string password, string[] roles = null)
     {
       // generate a random salt
       var rng = RandomNumberGenerator.Create();
@@ -134,6 +132,19 @@ namespace Packt.Shared
       };
       Users.Add(user.Name, user);
       return user;
+    }
+
+    public static void LogIn(string username, string password)
+    {
+      if (CheckPassword(username, password))
+      {
+        var identity = new GenericIdentity(
+          username, "PacktAuth");
+        var principal = new GenericPrincipal(
+          identity, Users[username].Roles);
+
+        System.Threading.Thread.CurrentPrincipal = principal;
+      }
     }
     public static bool CheckPassword(
   string username, string password)
