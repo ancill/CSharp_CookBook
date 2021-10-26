@@ -1,13 +1,16 @@
 
+using System.Xml.Serialization;
+
 namespace Shapes
 {
+  [XmlInclude(typeof(Circle))]
+  [XmlInclude(typeof(Rectangle))]
   public abstract class Shape
   {
     // fields
     // protected - only inside this class and class that inherit it
     protected double height;
     protected double width;
-    protected string colour;
 
     // properties
     public virtual double Height
@@ -38,17 +41,7 @@ namespace Shapes
     // as a read-only property
     public virtual double Area { get; }
 
-    public virtual string Colour
-    {
-      get
-      {
-        return colour;
-      }
-      set
-      {
-        colour = value;
-      }
-    }
+    public string Colour { get; set; }
 
   }
 
