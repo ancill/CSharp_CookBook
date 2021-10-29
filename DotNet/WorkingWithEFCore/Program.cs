@@ -8,6 +8,8 @@ public class Program
   public static void Main()
   {
     QueryingCategories();
+    //FilteredIncludes();
+    QueryingProducts();
   }
 
   static void QueryingCategories()
@@ -41,6 +43,30 @@ public class Program
         {
           WriteLine($"  {p.ProductName} has {p.Stock} units in stock.");
         }
+      }
+    }
+  }
+  static void QueryingProducts()
+  {
+    using (var db = new Northwind())
+    {
+      WriteLine("Products that cost more than a price, highest at top.");
+      string input;
+      decimal price;
+      do
+      {
+        Write("Enter a product price: ");
+        input = ReadLine();
+      } while (!decimal.TryParse(input, out price));
+
+      IQueryable<Product> prods = db.Products
+        .Where(product => product.Cost > price)
+        .OrderByDescending(product => product.Cost);
+      foreach (Product item in prods)
+      {
+        WriteLine(
+          "{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
+          item.ProductID, item.ProductName, item.Cost, item.Stock);
       }
     }
   }
