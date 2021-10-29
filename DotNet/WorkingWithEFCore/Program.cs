@@ -3,22 +3,30 @@ using Packt.Shared;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 public class Program
 {
   public static void Main()
   {
     QueryingCategories();
     //FilteredIncludes();
-    QueryingProducts();
+    //QueryingProducts();
   }
 
   static void QueryingCategories()
   {
     using (var db = new Northwind())
     {
+      var loggerFactory = db.GetService<ILoggerFactory>();
+      loggerFactory.AddProvider(new ConsoleLoggerProvider());
       WriteLine("Categories and how many products they have:");
       // a query to get all categories and their related products
+
+
       IQueryable<Category> cats = db.Categories
+        .TagWith("Categories with Products.")
         .Include(c => c.Products);
       foreach (Category c in cats)
       {
@@ -36,6 +44,7 @@ public class Program
       int stock = int.Parse(unitsInStock);
       IQueryable<Category> cats = db.Categories
         .Include(c => c.Products.Where(p => p.Stock >= stock));
+      WriteLine($"ToQueryString: {cats.ToQueryString()}");
       foreach (Category c in cats)
       {
         WriteLine($"{c.CategoryName} has {c.Products.Count} products with a minimum of { stock} units in stock.");
@@ -60,6 +69,7 @@ public class Program
       } while (!decimal.TryParse(input, out price));
 
       IQueryable<Product> prods = db.Products
+        .TagWith("Products filtered by price and sorted.")
         .Where(product => product.Cost > price)
         .OrderByDescending(product => product.Cost);
       foreach (Product item in prods)
