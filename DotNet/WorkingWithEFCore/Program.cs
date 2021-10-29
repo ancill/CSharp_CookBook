@@ -165,4 +165,17 @@ public class Program
       }
     }
   }
+
+  static bool IncreaseProductPrice(string name, decimal amount)
+  {
+    using (var db = new Northwind())
+    {
+      // get first product whose name starts with name
+      Product updateProduct = db.Products.First(
+        p => p.ProductName.StartsWith(name));
+      updateProduct.Cost += amount;
+      int affected = db.SaveChanges();
+      return (affected == 1);
+    }
+  }
 }
