@@ -14,10 +14,16 @@ public class Program
     //FilteredIncludes();
     //QueryingProducts();
     //QueryingWithLike();
-    if (AddProduct(6, "Bob's Burgers", 500M))
-    {
-      WriteLine("Add product successful.");
-    }
+    // if (AddProduct(6, "Bob's Burgers", 500M))
+    // {
+    //   WriteLine("Add product successful.");
+    // }
+    // if (IncreaseProductPrice("Bob", 30M))
+    // {
+    //   WriteLine("Update product price successful.");
+    // }
+    int deleted = DeleteProducts("Bob");
+    WriteLine($"{deleted} product(s) were deleted.");
     ListProducts();
   }
 
@@ -176,6 +182,17 @@ public class Program
       updateProduct.Cost += amount;
       int affected = db.SaveChanges();
       return (affected == 1);
+    }
+  }
+  static int DeleteProducts(string name)
+  {
+    using (var db = new Northwind())
+    {
+      IEnumerable<Product> products = db.Products.Where(
+        p => p.ProductName.StartsWith(name));
+      db.Products.RemoveRange(products);
+      int affected = db.SaveChanges();
+      return affected;
     }
   }
 }
