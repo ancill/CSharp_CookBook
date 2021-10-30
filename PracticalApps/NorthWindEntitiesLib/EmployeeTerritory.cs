@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Packt.Shared
 {
-    [Keyless]
-    public partial class EmployeeTerritory
-    {
-        [Column("EmployeeID", TypeName = "int")]
-        public long EmployeeId { get; set; }
-        [Required]
-        [Column("TerritoryID", TypeName = "nvarchar")]
-        public string TerritoryId { get; set; }
-    }
+  [Keyless]
+  public partial class EmployeeTerritory
+  {
+    [Column(TypeName = "int")]
+    public long EmployeeID { get; set; }
+    [Required]
+    [Column(TypeName = "nvarchar")]
+    public string TerritoryID { get; set; }
+  }
 }
