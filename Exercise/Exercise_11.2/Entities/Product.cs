@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Packt.Shared
+namespace Northwind.Entity
 {
   public class Product
   {

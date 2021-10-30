@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Packt.Shared
+namespace Northwind.Entity
 {
   // This manages the connection to the database
   public class Northwind : DbContext
@@ -12,7 +12,7 @@ namespace Packt.Shared
     protected override void OnConfiguring(
       DbContextOptionsBuilder optionsBuilder)
     {
-      string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "Northwind.db");
+      string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "./Database/Northwind.db");
 
       optionsBuilder.UseLazyLoadingProxies().UseSqlite($"Filename={path}");
     }

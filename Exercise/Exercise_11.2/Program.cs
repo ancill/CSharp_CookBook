@@ -1,12 +1,12 @@
 ﻿using System;
-
-namespace Exercise_11._2
+using Northwind.Entity;
+namespace NorthwindApp
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      NorthwindUtils.QueryingProducts();
     }
+  }
 }
