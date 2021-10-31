@@ -24,15 +24,17 @@ namespace Packt.Shared
     public long ProductID { get; set; }
     [Required]
     [Column(TypeName = "nvarchar (40)")]
+    [StringLength(40)]
     public string ProductName { get; set; }
     [Column(TypeName = "int")]
     public long? SupplierID { get; set; }
     [Column(TypeName = "int")]
     public long? CategoryID { get; set; }
     [Column(TypeName = "nvarchar (20)")]
+    [StringLength(20)]
     public string QuantityPerUnit { get; set; }
     [Column(TypeName = "money")]
-    public byte[] UnitPrice { get; set; }
+    public decimal? UnitPrice { get; set; }
     [Column(TypeName = "smallint")]
     public long? UnitsInStock { get; set; }
     [Column(TypeName = "smallint")]
@@ -41,7 +43,7 @@ namespace Packt.Shared
     public long? ReorderLevel { get; set; }
     [Required]
     [Column(TypeName = "bit")]
-    public byte[] Discontinued { get; set; }
+    public bool Discontinued { get; set; }
 
     [ForeignKey(nameof(CategoryID))]
     [InverseProperty("Products")]

@@ -23,7 +23,7 @@ namespace Packt.Shared
     public long ProductID { get; set; }
     [Required]
     [Column(TypeName = "money")]
-    public byte[] UnitPrice { get; set; }
+    public decimal? UnitPrice { get; set; }
     [Column(TypeName = "smallint")]
     public long Quantity { get; set; }
     [Column(TypeName = "real")]

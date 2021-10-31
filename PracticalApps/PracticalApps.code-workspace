@@ -5,6 +5,12 @@
 		},
 		{
 			"path": "NorthWindEntitiesLib"
+		},
+		{
+			"path": "NorthWindContextLib"
+		},
+		{
+			"path": "NorthWindWeb"
 		}
 	],
 	"settings": {}
