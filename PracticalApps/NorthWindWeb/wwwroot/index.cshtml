@@ -4,6 +4,7 @@
   public string DayName { get; set; }
   public void OnGet()
   {
+    ViewData["Title"] = "Northwind Website";
     Model.DayName = DateTime.Now.ToString("dddd");
   }
 }
@@ -24,16 +25,8 @@
 <body>
   <div class="container">
     <div class="jumbotron">
-      <h1 class="display-2">Welcome to Northwind!</h1>
-      <p class="lead">We supply products to our customers.</p>
-      <hr />
-      <h2>This is a static HTML page.</h2>
-      <p>It's @Model.DayName! Our customers include restaurants, hotels, and
-        cruise lines.</p>
-      <p>
-        <a class="btn btn-primary" href="https://www.asp.net/">Learn more</a>
-      </p>
-
+      <a class="btn btn-primary" href="suppliers">
+        Learn more about our suppliers</a>
     </div>
   </div>
 </body>
