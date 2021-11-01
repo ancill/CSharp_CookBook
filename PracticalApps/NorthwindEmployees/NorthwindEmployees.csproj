@@ -9,7 +9,7 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../NorthWindContextLib/NorthWindContextLib.csproj" />
+    <ProjectReference Include="../NorthWindContextLib/NorthWindContextLib.csproj" />
   </ItemGroup>
 
 

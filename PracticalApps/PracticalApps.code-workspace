@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "NorthWindWeb"
+		},
+		{
+			"path": "NorthwindEmployees"
 		}
 	],
 	"settings": {}
