@@ -1,22 +1,31 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NorthWindMVC.Models;
+using Packt.Shared;
 
 namespace NorthWindMVC.Controllers;
 
 public class HomeController : Controller
 {
   private readonly ILogger<HomeController> _logger;
-
-  public HomeController(ILogger<HomeController> logger)
+  private Northwind db;
+  public HomeController(ILogger<HomeController> logger, Northwind injectedContext)
   {
     _logger = logger;
+    db = injectedContext;
   }
 
   public IActionResult Index()
   {
+    var model = new HomeIndexViewModel
+    {
+      VisitorCount = (new Random()).Next(1, 1001),
+      Categories = db.Categories.ToList(),
+      Products = db.Products.ToList()
+    };
     return View();
   }
+
   [Route("private")]
   public IActionResult Privacy()
   {

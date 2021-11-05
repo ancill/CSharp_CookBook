@@ -18,5 +18,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0-rc.1.21452.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0-rc.1.21452.10" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include=
+    "..\NorthwindContextLib\NorthwindContextLib.csproj" />
+  </ItemGroup>
 </Project>
