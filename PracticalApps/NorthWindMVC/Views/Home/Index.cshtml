@@ -13,6 +13,13 @@
     The <img> element for each category uses parentheses around a Razor expression to ensure that the compiler does not
     include the .jpeg as part of the expression, as shown in the following markup: "~/images/category@(Model.
     Categories[c].CategoryID).jpeg"
+
+    The <a> elements for the product links use tag helpers to generate URL paths. Clicks on these hyperlinks will be handled
+    by the Home controller and its ProductDetail action method. This action method does not exist yet, but you will add it
+    later in this chapter. The ID of the product is passed as a route segment named id, as shown in the following URL path
+    for Ipoh Coffee:
+    https://localhost:5001/Home/ProductDetail/43
+
     */
 }
 <div id="categories" class="carousel slide" data-ride="carousel" data-interval="3000" data-keyboard="true">
@@ -42,13 +49,13 @@
                 currentItem = "";
             }
             <div class="carousel-item @currentItem">
-                <img class="d-block w-100" src="~/images/category@(Model.Categories[c].CategoryID).jpeg"
+                <img class="d-block w-100" src="~/images/Сategories/category@(Model.Categories[c].CategoryID).jpeg"
                 alt="@Model.Categories[c].CategoryName" />
                 <div class="carousel-caption d-none d-md-block">
                     <h2>@Model.Categories[c].CategoryName</h2>
                     <h3>@Model.Categories[c].Description</h3>
                     <p>
-                        <a class="btn btn-primary" href="/category/@Model.Categories[c].CategoryID">View</a>
+                        <a class="btn btn-primary" href="/Сategories/category/@Model.Categories[c].CategoryID">View</a>
                     </p>
                 </div>
             </div>
