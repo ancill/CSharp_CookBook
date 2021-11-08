@@ -6,7 +6,7 @@
     {
       "Freezing", "Bracing", "Chilly", "Cool", "Mild",
       "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
-      "Scorching"
+      "Scorching","Scorching"
     };
 
     public DateTime Date { get; set; }
