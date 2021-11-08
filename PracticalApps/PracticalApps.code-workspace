@@ -4,19 +4,16 @@
 			"path": "."
 		},
 		{
-			"path": "NorthWindEntitiesLib"
+			"path": "Northwind.Mvc"
 		},
 		{
-			"path": "NorthWindContextLib"
+			"path": "Northwind.Common.EntityModels.Sqlite"
 		},
 		{
-			"path": "NorthWindWeb"
+			"path": "Northwind.Common.DataContext.Sqlite"
 		},
 		{
-			"path": "NorthwindEmployees"
-		},
-		{
-			"path": "NorthWindMVC"
+			"path": "Northwind.Common"
 		}
 	],
 	"settings": {}
