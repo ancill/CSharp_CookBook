@@ -33,7 +33,7 @@ public class CustomerRepository : ICustomerRepository
       if (customersCache is null) return c;
       // if the customer is new, add it to cache, else
       // call UpdateCache method
-      return customersCache.AddOrUpdate(c.CustomerId, c, UpdateChache);
+      return customersCache.AddOrUpdate(c.CustomerId, c, UpdateCache);
     }
     else
     {
@@ -41,9 +41,24 @@ public class CustomerRepository : ICustomerRepository
     }
   }
 
-  public Task<bool?> DeleteAsync(string id)
+  public async Task<bool?> DeleteAsync(string id)
   {
-    throw new NotImplementedException();
+    id = id.ToUpper();
+    // remove from database
+    Customer? c = db.Customers.Find(id);
+    if (c is null) return null;
+    db.Customers.Remove(c);
+    int affected = await db.SaveChangesAsync();
+    if (affected == 1)
+    {
+      if (customersCache is null) return null;
+      // remove from cache
+      return customersCache.TryRemove(id, out c);
+    }
+    else
+    {
+      return null;
+    }
   }
 
   public Task<IEnumerable<Customer>> RetrieveAllAsync()
@@ -62,11 +77,21 @@ public class CustomerRepository : ICustomerRepository
     return Task.FromResult(c);
   }
 
-  public Task<Customer?> UpdateAsync(string id, Customer c)
+  public async Task<Customer?> UpdateAsync(string id, Customer c)
   {
-    throw new NotImplementedException();
+    // normilize customer id
+    id = id.ToUpper();
+    c.CustomerId = c.CustomerId.ToUpper();
+    // update in database
+    db.Customers.Update(c);
+    int affected = await db.SaveChangesAsync();
+    if (affected == 1)
+    {
+      return UpdateCache(id, c);
+    }
+    return null;
   }
-  private Customer UpdateCache(string id, Customer c)
+  private Customer? UpdateCache(string id, Customer c)
   {
     Customer? old;
     if (customersCache is not null)
@@ -81,6 +106,7 @@ public class CustomerRepository : ICustomerRepository
     }
     return null;
   }
+
 
 
 }
