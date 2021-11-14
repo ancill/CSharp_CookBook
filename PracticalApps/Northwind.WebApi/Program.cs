@@ -1,14 +1,13 @@
-﻿using Microsoft.OpenApi.Models;
-using Packt.Shared;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Packt.Shared; // AddNorthwindContext extension method
+﻿using Packt.Shared;
 using static System.Console;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+  WriteLine("Default output formatters");
+});
 builder.Services.AddNorthwindContext();
 builder.Services.AddSwaggerGen(c =>
 {
