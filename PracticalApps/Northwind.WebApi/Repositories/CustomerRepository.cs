@@ -7,6 +7,7 @@ public class CustomerRepository : ICustomerRepository
 {
   // use static thread safe dict field to cache the customers
   private static ConcurrentDictionary<string, Customer>? customersCache;
+
   // use an instance data context field because it should not be
   // cached due to their internal caching
   private NorthwindContext db;
