@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters;
 using Packt.Shared;
 using static System.Console;
+using Northwind.WebApi.Repositories;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers(options =>
 {
   WriteLine("Default output formatters");
