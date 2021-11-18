@@ -16,4 +16,19 @@ public class CustomerController : ControllerBase
 
   // GET: api/customers
   // GET: api/customers/?country=[country]
+  // this will always return a list of customers (but it might be empty)
+  [HttpGet]
+  [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
+  public async Task<IEnumerable<Customer>> GetCustomers(string? country)
+  {
+    if (string.IsNullOrWhiteSpace(country))
+    {
+      return await repo.RetrieveAllAsync();
+    }
+    else
+    {
+      return (await repo.RetrieveAllAsync())
+        .Where(customer => customer.Country == country);
+    }
+  }
 }
