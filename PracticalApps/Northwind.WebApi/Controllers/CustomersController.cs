@@ -5,11 +5,11 @@ namespace Northwind.WebApi.Controllers;
 // base address: api/customers
 [Route("api/[controller]")]
 [ApiController]
-public class CustomerController : ControllerBase
+public class CustomersController : ControllerBase
 {
   private readonly ICustomerRepository repo;
   // constructor injects repo registered in Startup
-  public CustomerController(ICustomerRepository repo)
+  public CustomersController(ICustomerRepository repo)
   {
     this.repo = repo;
   }
@@ -94,7 +94,23 @@ public class CustomerController : ControllerBase
   [ProducesResponseType(204)]
   [ProducesResponseType(400)]
   [ProducesResponseType(404)]
-
+  public async Task<IActionResult> Delete(string id)
+  {
+    Customer? existing = await repo.RetrieveAsync(id);
+    if (existing == null)
+    {
+      return NotFound(); // 404 Resource not found
+    }
+    bool? deleted = await repo.DeleteAsync(id);
+    if (deleted.HasValue && deleted.Value)
+    {
+      return new NoContentResult();
+    }
+    else
+    {
+      return BadRequest($"Customer {id} was found but failed to delete.");
+    }
+  }
 
 
 
