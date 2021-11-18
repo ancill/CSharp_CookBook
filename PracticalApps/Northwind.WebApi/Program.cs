@@ -29,6 +29,7 @@ builder.Services.AddControllers(options =>
 .AddXmlSerializerFormatters();
 
 builder.Services.AddNorthwindContext();
+// Swagger
 builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new() { Title = "Northwind.WebApi", Version = "v1" });
