@@ -5,7 +5,7 @@ using Northwind.WebApi.Repositories;
 using Microsoft.AspNetCore.HttpLogging; // HttpLoggingFields
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.WebHost.UseUrls("https://localhost:5002/");
 // Add services to the container.
 builder.Services.AddControllers(options =>
 {
@@ -34,8 +34,17 @@ builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new() { Title = "Northwind.WebApi", Version = "v1" });
 });
+
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddHttpLogging(options =>
+{
+  options.LoggingFields = HttpLoggingFields.All;
+  options.RequestBodyLogLimit = 4096; // default is 32k
+  options.ResponseBodyLogLimit = 4096; // default is 32k
+});
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -47,6 +56,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseHttpLogging();
 
 app.MapControllers();
 

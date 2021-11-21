@@ -4,6 +4,7 @@ using Northwind.Mvc.Data; // ApplicationDbContext
 using Packt.Shared; // AddNorthwindContext extension method
 using System.Net.Http.Headers; // MediaTypeWithQualityHeaderValue
 using Northwind.Mvc.Hubs; // ChatHub
+using System.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,7 +55,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
   options.SignIn.RequireConfirmedAccount = true)
   .AddRoles<IdentityRole>() // enable role management
   .AddEntityFrameworkStores<ApplicationDbContext>();
