@@ -2,7 +2,7 @@
 using Packt.Shared;
 using static System.Console;
 using Northwind.WebApi.Repositories;
-
+using Microsoft.AspNetCore.HttpLogging; // HttpLoggingFields
 
 var builder = WebApplication.CreateBuilder(args);
 
