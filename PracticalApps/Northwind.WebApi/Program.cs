@@ -42,6 +42,7 @@ builder.Services.AddHttpLogging(options =>
   options.RequestBodyLogLimit = 4096; // default is 32k
   options.ResponseBodyLogLimit = 4096; // default is 32k
 });
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -50,6 +51,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
+  app.UseHttpsRedirection();
   app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind.WebApi v1"));
 }
 
