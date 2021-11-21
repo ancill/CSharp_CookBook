@@ -36,30 +36,46 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
 builder.Services.AddHttpLogging(options =>
 {
   options.LoggingFields = HttpLoggingFields.All;
   options.RequestBodyLogLimit = 4096; // default is 32k
   options.ResponseBodyLogLimit = 4096; // default is 32k
 });
+
 builder.Services.AddCors();
 
+builder.Services.AddHealthChecks()
+  .AddDbContextCheck<NorthwindContext>();
+
 var app = builder.Build();
-
-
 // Configure the HTTP request pipeline.
+
+app.UseCors(configurePolicy: options =>
+{
+  options.WithMethods("GET", "POST", "PUT", "DELETE");
+  options.WithOrigins(
+    "https://localhost:5001" // allow requests from the MVC client
+  );
+});
+
+
+app.UseHttpLogging();
+
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
-  app.UseHttpsRedirection();
   app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind.WebApi v1"));
 }
 
 app.UseHttpsRedirection();
 
+app.UseHealthChecks(path: "/howdoyoufeel");
+
 app.UseAuthorization();
 
-app.UseHttpLogging();
+app.UseMiddleware<SecurityHeaders>();
 
 app.MapControllers();
 
