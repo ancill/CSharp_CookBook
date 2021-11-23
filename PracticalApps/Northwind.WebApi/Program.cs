@@ -43,7 +43,7 @@ builder.Services.AddHttpLogging(options =>
   options.RequestBodyLogLimit = 4096; // default is 32k
   options.ResponseBodyLogLimit = 4096; // default is 32k
 });
-s
+
 builder.Services.AddCors();
 
 builder.Services.AddHealthChecks()
