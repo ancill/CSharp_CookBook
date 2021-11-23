@@ -1,0 +1,1 @@
+GET https://localhost:5003/api/weather/ HTTP/1.1

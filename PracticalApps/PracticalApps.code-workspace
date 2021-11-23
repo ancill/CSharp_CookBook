@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "Northwind.WebApi"
+		},
+		{
+			"path": "Minimal.WebApi"
 		}
 	],
 	"settings": {}
