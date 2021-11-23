@@ -42,9 +42,9 @@ builder.Services.AddHttpLogging(options =>
   options.LoggingFields = HttpLoggingFields.All;
   options.RequestBodyLogLimit = 4096; // default is 32k
   options.ResponseBodyLogLimit = 4096; // default is 32k
-}); f
+});
 
- builder.Services.AddCors();
+builder.Services.AddCors();
 
 builder.Services.AddHealthChecks()
   .AddDbContextCheck<NorthwindContext>();
