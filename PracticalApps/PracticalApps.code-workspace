@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "Minimal.WebApi"
+		},
+		{
+			"path": "Northwind.BlazorServer"
 		}
 	],
 	"settings": {}
